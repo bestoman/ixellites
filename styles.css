@@ -1,0 +1,149 @@
+:root{
+  --cream:#F3E6C8;
+  --teal:#1F9E96;
+  --teal-dark:#136B66;
+  --orange:#E8622F;
+  --mustard:#E3A857;
+  --navy:#141C26;
+  --navy-2:#1B2733;
+  --rust:#C1443C;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ background:#0B1119; }
+
+body{
+  position:relative;
+  min-height:100vh;
+  font-family:'Work Sans', sans-serif;
+  color:var(--cream);
+  background:
+    radial-gradient(ellipse 1200px 700px at 50% 0%, #223244 0%, transparent 60%),
+    linear-gradient(180deg, #0B1119 0%, #101A24 40%, #0C141C 100%);
+  overflow-x:hidden;
+}
+
+/* starfield */
+.stars{
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(1.6px 1.6px at 6% 8%, rgba(243,230,200,0.55), transparent),
+    radial-gradient(1.2px 1.2px at 22% 4%, rgba(243,230,200,0.4), transparent),
+    radial-gradient(1.8px 1.8px at 41% 12%, rgba(243,230,200,0.35), transparent),
+    radial-gradient(1.3px 1.3px at 63% 6%, rgba(243,230,200,0.4), transparent),
+    radial-gradient(1.5px 1.5px at 85% 9%, rgba(243,230,200,0.3), transparent),
+    radial-gradient(1.4px 1.4px at 93% 22%, rgba(243,230,200,0.3), transparent),
+    radial-gradient(1.6px 1.6px at 12% 34%, rgba(243,230,200,0.3), transparent),
+    radial-gradient(1.4px 1.4px at 76% 41%, rgba(243,230,200,0.28), transparent),
+    radial-gradient(1.6px 1.6px at 4% 58%, rgba(243,230,200,0.32), transparent),
+    radial-gradient(1.3px 1.3px at 95% 63%, rgba(243,230,200,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 30% 78%, rgba(243,230,200,0.28), transparent),
+    radial-gradient(1.4px 1.4px at 55% 88%, rgba(243,230,200,0.28), transparent),
+    radial-gradient(1.6px 1.6px at 88% 92%, rgba(243,230,200,0.3), transparent),
+    radial-gradient(1.3px 1.3px at 68% 97%, rgba(243,230,200,0.28), transparent),
+    radial-gradient(1.5px 1.5px at 16% 96%, rgba(243,230,200,0.28), transparent);
+}
+
+svg#bgIcons{ position:absolute; top:0; left:0; z-index:0; pointer-events:none; width:100%; }
+
+.page{ position:relative; z-index:1; max-width:1440px; margin:0 auto; }
+
+/* ---------- NAV ---------- */
+nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+  padding:clamp(20px,3vw,36px) clamp(20px,6vw,64px);
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand .wordmark{
+  font-family:'Righteous', sans-serif;
+  font-size:clamp(15px,2vw,22px);
+  letter-spacing:1.5px;
+  color:var(--cream);
+  white-space:nowrap;
+}
+.nav-tag{
+  font-family:'Space Mono', monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:var(--mustard);
+  opacity:0.85;
+  white-space:nowrap;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center;
+  padding:clamp(10px,3vw,36px) clamp(20px,6vw,64px) clamp(50px,8vw,90px);
+}
+.badge-wrap{
+  width:clamp(220px,32vw,380px);
+  height:clamp(220px,32vw,380px);
+  filter:drop-shadow(0 24px 50px rgba(0,0,0,0.55));
+  margin-bottom:clamp(24px,4vw,46px);
+}
+.badge-wrap svg{ display:block; width:100%; height:100%; }
+
+.tagline{
+  font-family:'Work Sans', sans-serif;
+  font-weight:400;
+  font-size:clamp(16px,1.6vw + 8px,25px);
+  line-height:1.62;
+  color:var(--cream);
+  max-width:700px;
+  margin-bottom:clamp(28px,4vw,44px);
+}
+.tagline b{ font-weight:500; color:var(--cream); }
+
+.coming-soon{
+  font-family:'Audiowide', sans-serif;
+  font-size:clamp(19px,2.4vw + 8px,32px);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:14px;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.25);
+  max-width:90vw;
+}
+.ribbon{ width:clamp(160px,20vw,320px); }
+.ribbon svg{ display:block; width:100%; height:auto; }
+
+/* ---------- DIVIDER ---------- */
+.divider{
+  display:flex; align-items:center; justify-content:center; gap:clamp(10px,2vw,22px);
+  padding:0 clamp(20px,6vw,64px) clamp(50px,7vw,90px);
+}
+.divider .line{ height:1px; width:clamp(60px,14vw,220px); background:linear-gradient(90deg, transparent, rgba(227,168,87,0.5), transparent); }
+.divider .label{
+  font-family:'Space Mono', monospace;
+  font-size:clamp(10px,1.2vw,13px);
+  letter-spacing:clamp(2px,0.6vw,5px);
+  color:var(--mustard);
+  white-space:nowrap;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  padding:0 clamp(20px,6vw,64px) clamp(40px,6vw,60px);
+}
+footer .foot-word{
+  font-family:'Righteous', sans-serif;
+  font-size:clamp(13px,1.4vw,16px);
+  letter-spacing:1.5px;
+  color:var(--cream);
+  opacity:0.85;
+}
+footer .foot-sub{
+  font-family:'Space Mono', monospace;
+  font-size:10px;
+  letter-spacing:2px;
+  color:var(--cream);
+  opacity:0.4;
+}
+
+@media (max-width:520px){
+  .nav-tag{ display:none; }
+}
