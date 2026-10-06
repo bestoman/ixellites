@@ -80,3 +80,43 @@
     resizeTimer = setTimeout(placeIcons, 200);
   });
 })();
+
+
+// Video cards: each card is a plain link to its mp4 (works without JS).
+// With JS, tapping a card swaps the poster for an inline player, so no
+// video data is downloaded until someone presses play.
+(function () {
+  var cards = document.querySelectorAll('.reel');
+  if (!cards.length) return;
+
+  function stopAll(except) {
+    cards.forEach(function (card) {
+      if (card === except) return;
+      var v = card.querySelector('video');
+      if (v) { v.pause(); }
+    });
+  }
+
+  cards.forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      if (card.classList.contains('is-playing')) { e.preventDefault(); return; }
+      e.preventDefault();
+      stopAll(card);
+      var v = document.createElement('video');
+      v.src = card.getAttribute('href');
+      v.poster = card.querySelector('img').getAttribute('src');
+      v.controls = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.preload = 'auto';
+      v.setAttribute('aria-label', 'The Ixellites play ' + card.getAttribute('data-title'));
+      card.classList.add('is-playing');
+      var play = card.querySelector('.reel-play');
+      if (play) play.style.display = 'none';
+      card.appendChild(v);
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    });
+  });
+})();

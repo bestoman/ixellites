@@ -1,6 +1,6 @@
-# The Ixellites — coming soon page
+# The Ixellites — landing page
 
-A single-page "coming soon" site for The Ixellites. Plain HTML/CSS/JS, no build step, no dependencies.
+A single-page site for The Ixellites: who we are, a "Have you got space for us?" call to venues, and four videos. Plain HTML/CSS/JS, no build step, no dependencies.
 
 ## Structure
 
@@ -9,6 +9,7 @@ index.html        page markup
 styles.css         all styling (fluid/responsive, no framework)
 script.js          scatters the background icons (UFOs, rockets, aliens, atoms, stars)
 assets/favicon.svg the atom mark, used as the browser tab icon
+assets/video/      the four videos (720x1280 mp4) and their poster images (jpg)
 assets/og-image.png social-share preview image (1200x630)
 netlify.toml        Netlify config (publish dir + security headers)
 ```
@@ -36,7 +37,7 @@ Then open the printed local URL in your browser.
    ```
    git init
    git add .
-   git commit -m "Initial commit: coming soon page"
+   git commit -m "Initial commit"
    git branch -M main
    git remote add origin https://github.com/<your-username>/<repo-name>.git
    git push -u origin main
@@ -56,6 +57,7 @@ From then on, every push to `main` on GitHub automatically redeploys the site �
 
 ## Editing content
 
-- Copy (tagline, "coming soon" line, location tag) lives directly in `index.html`.
+- Copy (tagline, "Have you got space for us?" line, location tag) lives directly in `index.html`.
+- To add or replace a video: drop the mp4 and a poster jpg in `assets/video/` and copy one `<li class="reel-item">` block in the `watch` section of `index.html`. Keep videos small (720x1280, about 5-9 MB).
 - Colors and type sizes are CSS custom properties / `clamp()` values at the top of `styles.css`.
 - To swap the background icon mix, edit the `icons` array or the `target` density formula in `script.js`.
