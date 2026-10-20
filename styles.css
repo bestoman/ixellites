@@ -210,6 +210,90 @@ nav{
   .reel-item{ flex:0 0 min(62vw,260px); scroll-snap-align:center; }
 }
 
+/* ---------- GIGS (Songkick) ---------- */
+.gigs{
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center;
+  padding:0 clamp(20px,6vw,64px) clamp(50px,7vw,90px);
+}
+.gigs-title{
+  font-family:'Audiowide', sans-serif;
+  font-weight:400;
+  font-size:clamp(19px,2vw + 8px,28px);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--mustard);
+}
+.gigs-sub{
+  font-family:'Space Mono', monospace;
+  font-size:clamp(11px,1.1vw,13px);
+  letter-spacing:2px;
+  color:var(--cream);
+  opacity:0.6;
+  margin:10px 0 clamp(22px,3vw,34px);
+}
+/* The card is a full-width block (width:100%, min-width:0) so the widget
+   always has a real, measurable width -- see the mobile notes in index.html. */
+.gigs-card{
+  width:100%; min-width:0;
+  max-width:720px;
+  padding:clamp(18px,3vw,32px);
+  background:var(--navy);
+  border:2px solid var(--cream);
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.5);
+  text-align:left;
+}
+.gigs-note{
+  font-family:'Work Sans', sans-serif;
+  font-size:clamp(14px,0.8vw + 8px,16px);
+  line-height:1.6;
+  color:var(--cream);
+  opacity:0.85;
+  margin-bottom:clamp(14px,2vw,22px);
+  text-wrap:balance;
+}
+.gigs-widget{
+  display:block;
+  width:100%; min-width:0; max-width:100%;
+  overflow:hidden;           /* last-resort guard: never let the widget widen the page */
+  border-radius:10px;
+  background:var(--navy);    /* matches data-background-color so there's no flash of another colour */
+  color:var(--cream);
+}
+/* Whatever the injector creates (iframe or div), never wider than the card. */
+.gigs-widget > *,
+.gigs-widget iframe,
+.gigs-widget .songkick-widget-iframe{
+  max-width:100% !important;
+  border:0;
+}
+.gigs-widget iframe,
+.gigs-widget .songkick-widget-iframe{
+  display:block;
+  width:100% !important;
+}
+.gigs-link{
+  display:inline-block;
+  margin-top:clamp(14px,2vw,20px);
+  font-family:'Space Mono', monospace;
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--orange);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:color 0.2s ease, border-color 0.2s ease;
+}
+.gigs-link:hover,
+.gigs-link:focus-visible{ color:var(--mustard); border-bottom-color:var(--mustard); outline:none; }
+
+@media (max-width:520px){
+  /* a little less padding so the widget keeps ~300px+ of room on a 360-390px phone */
+  .gigs-card{ padding:16px 12px; }
+  .gigs-note{ padding:0 4px; }
+}
+
 /* ---------- DIVIDER ---------- */
 .divider{
   display:flex; align-items:center; justify-content:center; gap:clamp(10px,2vw,22px);

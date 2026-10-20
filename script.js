@@ -75,10 +75,22 @@
   document.addEventListener('DOMContentLoaded', placeIcons);
 
   var resizeTimer;
-  window.addEventListener('resize', function () {
+  function schedulePlace() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(placeIcons, 200);
-  });
+  }
+  window.addEventListener('resize', schedulePlace);
+  window.addEventListener('load', schedulePlace);
+
+  // The Songkick widget loads late and changes the page height; re-scatter
+  // the icons when the page height changes so they cover the full page.
+  if (window.ResizeObserver) {
+    var lastH = 0;
+    new ResizeObserver(function (entries) {
+      var h = Math.round(entries[0].contentRect.height);
+      if (h !== lastH) { lastH = h; schedulePlace(); }
+    }).observe(document.querySelector('.page') || document.body);
+  }
 })();
 
 

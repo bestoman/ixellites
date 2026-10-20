@@ -15,6 +15,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://widget-app.songkick.com">
 <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Audiowide&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/styles.css">
@@ -169,6 +170,26 @@
         <p class="reel-title">Mustalainen</p>
       </li>
     </ul>
+  </section>
+
+  <section class="gigs" id="gigs" aria-labelledby="gigsTitle">
+    <h2 id="gigsTitle" class="gigs-title">Catch us live</h2>
+    <p class="gigs-sub">Upcoming shows &middot; via Songkick</p>
+    <div class="gigs-card">
+      <p class="gigs-note">New dates appear here the moment they&rsquo;re announced. Track us on Songkick and we&rsquo;ll ping you when we play near you.</p>
+      <!--
+        Songkick widget. Notes (mobile):
+        - keep it in a normal block wrapper (NOT a flex/grid child that centres or shrink-wraps),
+          otherwise the injector measures a ~0px container and renders a tiny or oversized iframe;
+        - never put it inside display:none / collapsed elements;
+        - width is forced to 100% in styles.css (.gigs-widget) so it can't overflow narrow screens.
+        Colours are set to match the site (navy / cream / orange) rather than the default black.
+      -->
+      <div class="gigs-widget">
+        <a href="https://www.songkick.com/artists/10416791" class="songkick-widget" data-theme="dark" data-track-button="on" data-detect-style="off" data-background-color="rgb(20,28,38,1)" data-font-color="rgb(243,230,200,1)" data-button-bg-color="rgb(232,98,47,1)" data-button-text-color="rgb(20,28,38,1)" data-locale="en" data-other-artists="on" data-share-button="on" data-country-filter="on" data-rsvp="on" data-request-show="on" data-past-events="off" data-past-events-offtour="off" data-remind-me="off" style="display: none;"></a><script src='//widget-app.songkick.com/injector/10416791'></script>
+      </div>
+      <a class="gigs-link" href="https://www.songkick.com/artists/10416791" target="_blank" rel="noopener noreferrer">All dates on Songkick &rarr;</a>
+    </div>
   </section>
 
   <div class="divider">

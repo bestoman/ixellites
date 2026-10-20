@@ -18,6 +18,10 @@ Fonts (Righteous, Audiowide, Space Mono, Work Sans) load from Google Fonts via `
 
 The background icon field is generated client-side with a seeded random number generator, so the layout is stable across reloads but automatically hidden on narrow (< 700px) screens to keep mobile clean.
 
+## Gigs (Songkick)
+
+The "Catch us live" section embeds the Songkick widget for artist 10416791. Colours are set through the widget's `data-*` attributes (navy background, cream text, orange button). If you change the snippet, keep it inside `.gigs-widget` — a plain block wrapper — and don't put it in a flex/grid item that shrink-wraps or in anything `display:none`, or it can render at the wrong width on phones. `styles.css` forces the widget to 100% of the card's width.
+
 ## Run it locally
 
 No build step needed — any static file server works:
